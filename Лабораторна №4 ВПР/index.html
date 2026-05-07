@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaHall — Розклад сеансів (Варіант 12)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header-area">
+        <h1>CinemaHall</h1>
+    </header>
+
+    <nav class="nav-area" aria-label="Головна навігація">
+        <ul>
+            <li><a href="#home">Головна</a></li>
+            <li><a href="#schedule">Розклад</a></li>
+        </ul>
+    </nav>
+
+    <main class="grid-container">
+        <article class="content-area">
+            <section id="schedule">
+                <h2>Розклад сеансів</h2>
+
+                <div id="filter-controls">
+                    <label for="genre-select">Оберіть жанр:</label>
+                    <select id="genre-select" data-filter="genre">
+                        <option value="all">Всі жанри</option>
+                        <option value="action">Екшн</option>
+                        <option value="comedy">Комедія</option>
+                        <option value="drama">Драма</option>
+                        <option value="sci-fi">Фантастика</option>
+                    </select>
+
+                    <div id="quick-filters" style="margin-top: 10px;">
+                        <button class="filter-btn" data-genre="all">Всі</button>
+                        <button class="filter-btn" data-genre="sci-fi">Тільки Фантастика</button>
+                    </div>
+                </div>
+
+                <div class="gallery" id="movie-list">
+                    <div class="card movie-card" data-genre="sci-fi">
+                        <img src="Interstellar_2014.jpg" alt="Інтерстеллар">
+                        <h3>Інтерстеллар</h3>
+                        <p>Жанр: Фантастика</p>
+                        <p><strong>18:00 | 21:30</strong></p>
+                    </div>
+
+                    <div class="card movie-card" data-genre="comedy">
+                        <img src="r375x0x4.webp" alt="Похмілля у Вегасі">
+                        <h3>Похмілля у Вегасі</h3>
+                        <p>Жанр: Комедія</p>
+                        <p><strong>14:00 | 20:00</strong></p>
+                    </div>
+
+                    <div class="card movie-card" data-genre="action">
+                        <img src="Шалений_Макс_Дорога_гніву_постер.jpg" alt="Шалений Макс">
+                        <h3>Шалений Макс</h3>
+                        <p>Жанр: Екшн</p>
+                        <p><strong>16:45 | 22:00</strong></p>
+                    </div>
+
+                    <div class="card movie-card" data-genre="drama">
+                        <img src="TheWhale-Scaled.jpg" alt="Кит">
+                        <h3>Кит</h3>
+                        <p>Жанр: Драма</p>
+                        <p><strong>12:00 | 15:30</strong></p>
+                    </div>
+
+                    <div class="card movie-card" data-genre="sci-fi">
+                        <img src="81UA6mArHJL._AC_UF894,1000_QL80_.jpg" alt="Дюна">
+                        <h3>Дюна: Частина друга</h3>
+                        <p>Жанр: Фантастика</p>
+                        <p><strong>19:00 | 22:30</strong></p>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <aside class="sidebar-area">
+            <h3>Сьогодні в прокаті</h3>
+            <p>Не пропустіть головні прем'єри сезону!</p>
+            <div id="status-message">Знайдено фільмів: <span id="count">5</span></div>
+        </aside>
+    </main>
+
+    <footer class="footer-area">
+        <p>&copy; 2026 CinemaHall. Програмна реалізація: [Ваше Прізвище]</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

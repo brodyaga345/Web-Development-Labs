@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Кінотеатр Укр-сіті</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <header>
+        <h1>Кінотеатр Укр-сіті</h1>
+        <p>Кінотеатр нашої країни, аналогів якому нема!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Фільми</a></li>
+            <li><a href="#">Розклад</a></li>
+            <li><a href="#">Про нас</a></li>
+            <li><a href="#">Контакти</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section>
+
+            <h2 class="center-title">
+                Розклад сеансів
+            </h2>
+
+            <div class="filter-panel">
+
+                <label for="genre">
+                    Оберіть жанр:
+                </label>
+
+                <select id="genre" v-model="selectedGenre">
+
+                    <option value="all">
+                        Всі жанри
+                    </option>
+
+                    <option value="Фентезі">
+                        Фентезі
+                    </option>
+
+                    <option value="Екшен">
+                        Екшен
+                    </option>
+
+                    <option value="Фантастика">
+                        Фантастика
+                    </option>
+
+                    <option value="Драма">
+                        Драма
+                    </option>
+
+                </select>
+
+            </div>
+
+            <p class="info">
+                Знайдено сеансів:
+                <strong>{{ filteredSessions.length }}</strong>
+            </p>
+
+            <div class="sessions-container">
+
+                <session-card
+                    v-for="session in filteredSessions"
+                    :key="session.id"
+                    :session="session"
+                    :class="{ active: selectedGenre === session.genre }"
+                >
+
+                    <template v-slot>
+                        <p class="slot-text">
+                            Жанр:
+                            {{ session.genre }}
+                        </p>
+                    </template>
+
+                </session-card>
+
+            </div>
+
+            <p
+                v-if="filteredSessions.length === 0"
+                class="empty-message"
+            >
+                Сеансів не знайдено
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Контакти: info@Ukr-city.ua</p>
+        <p>© 2026 CinemaStar</p>
+        <p>Гаряча лінія: 096 759 88 23</p>
+    </footer>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
